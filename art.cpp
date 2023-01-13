@@ -59,21 +59,36 @@ int main() {
         
         current_rec+=time*1.0;
         if (current_rec > 3) {
-            current_rec-=4;
+            current_rec-=3;
         }
         hero_sprite.setTextureRect(IntRect(int(current_rec)*width ,2*height, width, height));
         hero_sprite.move(0.1*time, 0);
     }
     if (Keyboard::isKeyPressed(Keyboard::Left)) {
-        hero_sprite.setTextureRect(IntRect(0,1*height ,width,height));
+        current_rec+=time*1.0;
+        if (current_rec > 3) {
+            current_rec-=3;
+        }
+        
+        hero_sprite.setTextureRect(IntRect(int(current_rec)*width ,1*height ,width,height));
         hero_sprite.move(-0.1*time, 0);
     }
     if (Keyboard::isKeyPressed(Keyboard::Up)) {
-        hero_sprite.setTextureRect(IntRect(0,3*height ,width,height));
+        current_rec+=time*1.0;
+        if (current_rec > 3) {
+            current_rec-=3;
+        }
+        
+        hero_sprite.setTextureRect(IntRect(int(current_rec)*width ,3*height ,width,height));
         hero_sprite.move( 0 , -0.1*time);
     }
     if (Keyboard::isKeyPressed(Keyboard::Down)) {
-        hero_sprite.setTextureRect(IntRect(0,0*height ,width,height));
+        current_rec+=time*1.0;
+        if (current_rec > 3) {
+            current_rec-=3;
+        }
+        
+        hero_sprite.setTextureRect(IntRect(int(current_rec)*width ,0*height ,width,height));
         hero_sprite.move(0, 0.1*time);
     }
     if (Mouse::isButtonPressed(Mouse::Left)) {
