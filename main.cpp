@@ -19,22 +19,25 @@ int main (){
     while (window.isOpen()) {
         float time = clock.getElapsedTime().asMicroseconds();
         time = time*0.001;
-        clock.restart();
+        
 	    Event event;
     
     
 	while (window.pollEvent(event)) {
 		if (event.type == Event::Closed)
 		    { window.close(); }
-        player.control();
+      
+	}
+
+    window.clear(Color(Color::White));
+	    player.control();
 
         player.update(time);
         player.run_animate(time);
         change_view(player.get_x(), player.get_y());
-            window.setView(view);
-	}
-
-    window.clear(Color(Color::White));
+        window.setView(view);
+	clock.restart();
+	    
     for (int h=0; h<HEIGHT_MAP; h++){
         for(int w=0; w<WIDTH_MAP; w++) {
             if(TileMap[h][w]=='s'){
