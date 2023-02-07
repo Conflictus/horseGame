@@ -2,6 +2,12 @@
 using namespace sf;
 const int height = 80;
 const int width = 80;
+float maxFrame(float rect) {
+        if (rect > 4) {
+            rect-=4;
+        }
+    return 0;
+}
 int main() {
     RenderWindow window(VideoMode(400, 400), "SFML");
 
@@ -58,16 +64,16 @@ int main() {
     if (Keyboard::isKeyPressed(Keyboard::Right)) {
         
         current_rec+=time*1.0;
-        if (current_rec > 3) {
-            current_rec-=3;
+        if (current_rec > 4) {
+            current_rec-=4;
         }
         hero_sprite.setTextureRect(IntRect(int(current_rec)*width ,2*height, width, height));
         hero_sprite.move(0.1*time, 0);
     }
     if (Keyboard::isKeyPressed(Keyboard::Left)) {
         current_rec+=time*1.0;
-        if (current_rec > 3) {
-            current_rec-=3;
+        if (current_rec > 4) {
+            current_rec-=4;
         }
         
         hero_sprite.setTextureRect(IntRect(int(current_rec)*width ,1*height ,width,height));
@@ -75,8 +81,8 @@ int main() {
     }
     if (Keyboard::isKeyPressed(Keyboard::Up)) {
         current_rec+=time*1.0;
-        if (current_rec > 3) {
-            current_rec-=3;
+        if (current_rec > 4) {
+            current_rec-=4;
         }
         
         hero_sprite.setTextureRect(IntRect(int(current_rec)*width ,3*height ,width,height));
